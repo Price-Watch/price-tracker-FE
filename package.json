@@ -1,0 +1,26 @@
+{
+  "name": "price-tracker-fe",
+  "version": "1.0.0",
+  "description": "FE for price-traker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cross-env BABEL_ENV=dev vue-cli-service serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "vue": "^2.6.12",
+    "vue-axios": "^3.2.4",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@vue/cli-service": "^4.5.11",
+    "cross-env": "^7.0.3",
+    "vue-template-compiler": "^2.6.12"
+  }
+}
