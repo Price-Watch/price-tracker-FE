@@ -1,5 +1,5 @@
-var JWTService = require('../common/jwt.service');
-var ApiService = require('../common/api.service');
+var JWTService = require('../common/jwt.service').default;
+var ApiService = require('../common/api.service').default;
 
 const {
     LOGIN,
@@ -15,13 +15,13 @@ const {
 
 const state = {
     errors: null,
-    user: {},
+    username: null,
     isAuthenticated: !!JWTService.getToken()
 };
 
 const getters = {
     currentUser(state) {
-        return state.user;
+        return state.username;
     },
     isAuthenticated(state) {
         return state.isAuthenticated;
@@ -31,13 +31,13 @@ const getters = {
 const actions = {
     [LOGIN](context, credentials) {
         return new Promise(resolve => {
-            ApiService.post('authentication/login', { user: credentials })
+            ApiService.post('authentication/login', credentials)
                 .then(({ data }) => {
-                    context.commit(SET_AUTH, data.user);
+                    context.commit(SET_AUTH, data);
                     resolve(data);
                 })
                 .catch((err) => {
-                    context.commit(SET_ERROR, err.data.errors);
+                    context.commit(SET_ERROR, err.message);
                 });
         });
     },
@@ -45,14 +45,14 @@ const actions = {
         context.commit(PURGE_AUTH);
     },
     [REGISTER](context, credentials) {
-        return new Promise(resolve => {
-            ApiService.post('authentication/register', { user: credentials })
+        return new Promise((resolve, reject) => {
+            ApiService.post('authentication/register', credentials)
                 .then(({ data }) => {
-                    context.commit(SET_AUTH, data.user);
+                    context.commit(SET_AUTH, data);
                     resolve(data);
                 })
                 .catch((err) => {
-                    context.commit(SET_ERROR, err.data.errors);
+                    context.commit(SET_ERROR, err.message);
                     reject(err);
                 });
         });
@@ -75,16 +75,16 @@ const mutations = {
     [SET_ERROR](state, error) {
         state.errors = error;
     },
-    [SET_AUTH](state, user) {
+    [SET_AUTH](state, authData) {
         state.isAuthenticated = true;
-        state.user = user;
-        state.errors = {};
-        JWTService.saveToken(state.user.token);
+        state.username = authData.username;
+        state.errors = null;
+        JWTService.saveToken(authData.token);
     },
     [PURGE_AUTH](state) {
         state.isAuthenticated = false;
-        state.user = {};
-        state.errors = {};
+        state.username = null;
+        state.errors = null;
         JWTService.destroyToken();
     }
 }

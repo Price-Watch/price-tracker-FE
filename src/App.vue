@@ -1,16 +1,16 @@
 <template>
     <div id='app'>
+        <ptHeader />
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-var Home = require('./views/Home');
-
+import ptHeader from './components/Header';
 export default {
     name: 'App',
     components: {
-        Home
+        ptHeader
     }
 }
 </script>

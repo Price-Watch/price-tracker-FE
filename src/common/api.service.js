@@ -2,7 +2,7 @@ var Vue = require('vue').default;
 var VueAxios = require('vue-axios');
 var axios = require('axios');
 var JWTService = require('./jwt.service').default;
-var API_URL = require('./config');
+var API_URL = require('./config').API_URL;
 
 const ApiService = {
     init() {
@@ -11,7 +11,7 @@ const ApiService = {
     },
 
     setHeader() {
-        Vue.axios.defaults.headers.common[
+        Vue.axios.default.headers.common[
             'Authorization'
         ] = `Bearer ${JwtService.getToken()}`;
     },

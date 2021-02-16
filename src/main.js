@@ -1,6 +1,6 @@
 var Vue = require('vue').default;
 var App = require('./App.vue').default;
-var store = require('./store');
+var store = require('./store').default;
 var router = require('./router').default;
 
 var ApiService = require('./common/api.service').default;
