@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ptHeader from './components/Header';
+import ptHeader from './components/Header.vue';
 export default {
     name: 'App',
     components: {
