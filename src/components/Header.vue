@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="hedaer-container">
+        <div class="header-container">
             <router-link class="header-logo" :to="{ name: 'home' }">
                 Home
             </router-link>
@@ -27,16 +27,20 @@
                         Home
                     </router-link>
                 </div>
-                <div>
+                <div class="right-action">
                     {{ currentUser }}
                 </div>
-                <div @click="logout">
+                <div class="right-action" @click="logout">
                     Log out
                 </div>
             </div>
         </div>
     </nav>
 </template>
+
+<style lang="scss">
+    @import './header.scss';
+</style>
 
 <script>
 import { LOGOUT } from '../store/actions.type';

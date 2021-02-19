@@ -1,0 +1,14 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    .right-actions {
+        display: flex;
+        .right-action {
+            margin: 8px 16px;
+            cursor: pointer;
+        }
+    }
+    .header-logo {
+        margin: 8px 16px;
+    }
+}

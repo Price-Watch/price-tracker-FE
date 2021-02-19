@@ -80,6 +80,7 @@ const mutations = {
         state.username = authData.username;
         state.errors = null;
         JWTService.saveToken(authData.token);
+        ApiService.setHeader();
     },
     [PURGE_AUTH](state) {
         state.isAuthenticated = false;

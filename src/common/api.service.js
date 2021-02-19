@@ -11,9 +11,9 @@ const ApiService = {
     },
 
     setHeader() {
-        Vue.axios.default.headers.common[
+        Vue.axios.defaults.headers.common[
             'Authorization'
-        ] = `Bearer ${JwtService.getToken()}`;
+        ] = `Bearer ${JWTService.getToken()}`;
     },
 
     get(resource, slug = '') {
@@ -25,7 +25,32 @@ const ApiService = {
 
     post(resource, params) {
         return Vue.axios.post(`${resource}`, params);
+    },
+
+    delete(resource, params) {
+        return Vue.axios.delete(`${resource}`, params)
+            .catch((err) => {
+                throw new Error(`ApiService: ${err}`);
+            })
     }
 }
 
 export default ApiService;
+
+export const TrackerService = {
+    add(trackerUrl) {
+        return ApiService.post('/tracker/add', {
+            url: trackerUrl.trackerUrl
+        })
+    },
+
+    remove(id) {
+        return ApiService.delete('tracker/remove', {
+            trackerId: id
+        });
+    },
+
+    getList() {
+        return ApiService.get('tracker', 'list');
+    }
+}
