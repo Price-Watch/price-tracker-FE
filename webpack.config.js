@@ -17,6 +17,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(setPath('dist'))
     },
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {

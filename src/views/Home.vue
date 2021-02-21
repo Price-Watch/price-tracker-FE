@@ -14,48 +14,21 @@
             </router-link>
         </div>
         <div v-else>
-            <div v-if="!trackers || trackers.length === 0">
-                No trackers yet. Add one now
-            </div>
-            <div v-else>
-                <span v-for="t in trackers" :key="t.url">{{t.url}}</span>
-            </div>
-            <form @submit="onSubmit(trackerUrl)">
-            <fieldset class="form-group">
-              <input
-                type="text"
-                v-model="trackerUrl"
-                placeholder="Tracker URL"
-              />
-            </fieldset>
-            <button>
-              Add tracker
-            </button>
-            </form>
+            <tpTrackerList />
         </div>
     </div>
 </template>
 
 <script>
 var mapGetters = require('vuex').default.mapGetters;
-var FETCH_TRACKERS = require('../store/actions.type').FETCH_TRACKERS;
-var ADD_TRACKER = require('../store/actions.type').ADD_TRACKER;
+var tpTrackerList = require('../components/TrackerList.vue').default;
 export default {
     name: 'home',
-    mounted() {
-        this.$store.dispatch(FETCH_TRACKERS);
-    },
-    methods: {
-        onSubmit(trackerUrl) {
-            this.$store
-                .dispatch(ADD_TRACKER, { trackerUrl })
-                .then((data) => {
-                    console.log(data);
-                });
-        }
-    },
     computed: {
-        ...mapGetters(['isAuthenticated', 'trackers'])
+        ...mapGetters(['isAuthenticated'])
     },
+    components: {
+        tpTrackerList
+    }
 }
 </script>

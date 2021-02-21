@@ -8,12 +8,19 @@ const ApiService = {
     init() {
         Vue.use(VueAxios, axios);
         Vue.axios.defaults.baseURL = API_URL;
+        this.setHeader();
     },
 
     setHeader() {
-        Vue.axios.defaults.headers.common[
-            'Authorization'
-        ] = `Bearer ${JWTService.getToken()}`;
+        let token = JWTService.getToken();
+        if (token) {
+            Vue.axios.defaults.headers.common[
+                'Authorization'
+            ] = `Bearer ${token}`;
+        } else {
+            console.log('Token not found in LS');
+        }
+        
     },
 
     get(resource, slug = '') {
@@ -38,9 +45,10 @@ const ApiService = {
 export default ApiService;
 
 export const TrackerService = {
-    add(trackerUrl) {
+    add(data) {
         return ApiService.post('/tracker/add', {
-            url: trackerUrl.trackerUrl
+            name: data.trackerName,
+            url: data.trackerUrl
         })
     },
 
