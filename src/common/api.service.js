@@ -46,10 +46,7 @@ export default ApiService;
 
 export const TrackerService = {
     add(data) {
-        return ApiService.post('/tracker/add', {
-            name: data.trackerName,
-            url: data.trackerUrl
-        })
+        return ApiService.post('/tracker/add', data);
     },
 
     remove(id) {
