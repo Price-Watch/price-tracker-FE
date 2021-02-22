@@ -4,7 +4,7 @@
             Loading trackers
         </div>
         <div v-else>
-            <div v-if="trackers.length === 0">
+            <div v-if="!trackers || trackers.length === 0">
                 No trackers yet. Add one
             </div>
             <tpTrackerPreview v-else

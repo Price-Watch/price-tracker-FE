@@ -29,7 +29,9 @@ export default {
             this.$store
                 .dispatch(ADD_TRACKER, { name: trackerName,  url: trackerUrl })
                 .then(() => {
-                    this.$router.push({ name: "home" });
+                    if (this.$router.currentRoute.fullPath !== '/'){
+                        this.$router.push({ name: "home" });
+                    }
                 });
         }
     },

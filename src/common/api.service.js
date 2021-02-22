@@ -27,7 +27,7 @@ const ApiService = {
         return Vue.axios.get(`${resource}/${slug}`)
             .catch((err) => {
                 throw new Error(`ApiService: ${err}`);
-            })
+            });
     },
 
     post(resource, params) {
@@ -35,10 +35,12 @@ const ApiService = {
     },
 
     delete(resource, params) {
-        return Vue.axios.delete(`${resource}`, params)
-            .catch((err) => {
-                throw new Error(`ApiService: ${err}`);
-            })
+        return Vue.axios.delete(`${resource}`, {
+            data: params
+        })
+        .catch((err) => {
+            throw new Error(`ApiService: ${err}`);
+        });
     }
 }
 
@@ -49,10 +51,8 @@ export const TrackerService = {
         return ApiService.post('/tracker/add', data);
     },
 
-    remove(id) {
-        return ApiService.delete('tracker/remove', {
-            trackerId: id
-        });
+    remove(data) {
+        return ApiService.delete('tracker/remove', data);
     },
 
     getList() {
