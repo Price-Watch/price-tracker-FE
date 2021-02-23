@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h1>Hello Vue - Login</h1>
+            <h1>Login</h1>
             <router-link
                 :to="{ name: 'register' }"
             >

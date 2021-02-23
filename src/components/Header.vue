@@ -2,7 +2,7 @@
     <nav>
         <div class="header-container">
             <router-link class="header-logo" :to="{ name: 'home' }">
-                Home
+                Price tracker
             </router-link>
             <div v-if="!isAuthenticated" class="right-actions">
                 <div class="right-action">

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello Vue - Home</h1>
+        <h1>Home</h1>
         <div v-if="!isAuthenticated">
             <router-link
                 :to="{ name: 'register' }"
