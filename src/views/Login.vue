@@ -1,37 +1,32 @@
 <template>
     <div>
-        <div>
+        <div class="header">
             <h1>Login</h1>
             <router-link
                 :to="{ name: 'register' }"
             >
                 Register
             </router-link>
-            <router-link
-                :to="{ name: 'home' }"
-            >
-                Home
-            </router-link>
         </div>
-        <div>
+        <div class="login-form">
             <ul v-if="errors" class="error-messages">
                 <li>{{ errors }}</li>
             </ul>
             <form @submit.prevent="onSubmit(username, password)">
-            <fieldset class="form-group">
+            <div class="form-group">
               <input
                 type="text"
                 v-model="username"
                 placeholder="Username"
               />
-            </fieldset>
-            <fieldset class="form-group">
+            </div>
+            <div class="form-group">
               <input
                 type="password"
                 v-model="password"
                 placeholder="Password"
               />
-            </fieldset>
+            </div>
             <button>
               Sign in
             </button>
@@ -39,6 +34,10 @@
         </div>
     </div>
 </template>
+
+<style lang="scss">
+    @import '../assets/styles/login.scss';
+</style>
 
 <script>
 var mapState = require('vuex').default.mapState;
