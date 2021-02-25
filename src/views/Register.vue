@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div class="header">
             <h1>Register</h1>
             <router-link
                 :to="{ name: 'login' }"
@@ -13,29 +13,32 @@
                 Home
             </router-link>
         </div>
-        <div>
+        <div class="register-form">
             <form @submit.prevent="onSubmit(username, email, password)">
-            <fieldset class="form-group">
+            <div class="form-group">
               <input
                 type="text"
                 v-model="username"
-                placeholder="Username"
+                required="true"
               />
-            </fieldset>
-            <fieldset class="form-group">
+              <div class="placeholder">USERNAME</div>
+            </div>
+            <div class="form-group">
               <input
                 type="text"
                 v-model="email"
-                placeholder="Email"
+                required="true"
               />
-            </fieldset>
-            <fieldset class="form-group">
+              <div class="placeholder">EMAIL</div>
+            </div>
+            <div class="form-group">
               <input
                 type="password"
                 v-model="password"
-                placeholder="Password"
+                required="true"
               />
-            </fieldset>
+              <div class="placeholder">PASSWORD</div>
+            </div>
             <button>
               Register
             </button>
@@ -43,6 +46,10 @@
         </div>
     </div>
 </template>
+
+<style lang="scss">
+    @import '../assets/styles/register.scss';
+</style>
 
 <script>
 var mapState = require('vuex').default.mapState;

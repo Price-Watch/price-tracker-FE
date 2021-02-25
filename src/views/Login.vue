@@ -14,18 +14,20 @@
             </ul>
             <form @submit.prevent="onSubmit(username, password)">
             <div class="form-group">
-              <input
+                <input
                 type="text"
                 v-model="username"
-                placeholder="Username"
-              />
+                required="true"
+                />
+                <div class="placeholder">USERNAME</div>
             </div>
             <div class="form-group">
-              <input
+                <input
                 type="password"
                 v-model="password"
-                placeholder="Password"
-              />
+                required="true"
+                />
+                <div class="placeholder">PASSWORD</div>
             </div>
             <button>
               Sign in
