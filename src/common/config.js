@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:4242';
+export const API_URL = 'https://limitless-beach-56834.herokuapp.com';

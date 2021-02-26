@@ -8,6 +8,9 @@
     "start": "webpack serve --config webpack.config.js --open --hot",
     "build": "webpack --mode production"
   },
+  "engines": {
+    "node": "14.15.5"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
