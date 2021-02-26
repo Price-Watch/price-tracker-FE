@@ -8,3 +8,5 @@ To start using this app:
 3. run ```npm run start``` to serve it locally at ```localhost:8080```
 
 For now can only be run against locally running API from [here](https://github.com/JakobMakovac/price-tracker).
+
+Demo version is available at www.mrjacobs.eu
