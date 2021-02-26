@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack.config.js --open --hot",
-    "build": "webpack --mode production"
+    "copy": "cp ./index.html ./dist",
+    "build": "webpack --mode production && npm run copy"
   },
   "engines": {
     "node": "14.15.5"
