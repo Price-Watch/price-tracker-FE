@@ -1,24 +1,32 @@
 <template>
-    <div>
+    <div class="add-content">
         <form @submit="onSubmit(trackerName, trackerUrl)">
-        <fieldset class="form-group">
+        <div class="form-group">
             <input
             type="text"
             v-model="trackerName"
-            placeholder="Tracker Name"
+            required="true"
             />
+            <div class="placeholder">NAME</div>
+        </div>
+        <div class="form-group">
             <input
             type="text"
             v-model="trackerUrl"
-            placeholder="Tracker URL"
+            required="true"
             />
-        </fieldset>
+            <div class="placeholder">URL</div>
+        </div>
         <button>
             Add tracker
         </button>
         </form>
     </div>
 </template>
+
+<style lang="scss">
+    @import '../assets/styles/addTracker.scss';
+</style>
 
 <script>
 var ADD_TRACKER = require('../store/actions.type').ADD_TRACKER;

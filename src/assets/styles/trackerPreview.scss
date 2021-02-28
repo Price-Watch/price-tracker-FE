@@ -1,0 +1,26 @@
+.tracker-preview {
+    border: 2px solid #1a206d;
+    border-radius: 7px;
+    padding: 8px;
+    background-color: #fff;
+    margin: 16px;
+    .name {
+        margin: 8px 0px;
+    }
+    .url {
+        margin: 8px 0px;
+    }
+    button {
+        transition: 0.25s;
+        background-color: #d13928;
+        padding: 4px 18px;
+        color: #fff;
+        border: 1px solid #d13928;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background-color: #eb2009;
+            border-color: #eb2009;
+        }
+    }
+}

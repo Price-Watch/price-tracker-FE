@@ -7,11 +7,6 @@
             >
                 Login
             </router-link>
-            <router-link
-                :to="{ name: 'home' }"
-            >
-                Home
-            </router-link>
         </div>
         <div class="register-form">
             <form @submit.prevent="onSubmit(username, email, password)">
