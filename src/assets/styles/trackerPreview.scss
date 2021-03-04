@@ -12,15 +12,23 @@
     }
     button {
         transition: 0.25s;
-        background-color: #d13928;
         padding: 4px 18px;
         color: #fff;
-        border: 1px solid #d13928;
         border-radius: 4px;
+        background-color: #2f8ab5;
+        border: 1px solid #2f8ab5;
         cursor: pointer;
         &:hover {
-            background-color: #eb2009;
-            border-color: #eb2009;
+            background-color: #5db4d2;
+            border-color: #5db4d2;
+        }
+        &.remove {
+            background-color: #d13928;
+            border: 1px solid #d13928;
+            &:hover {
+                background-color: #eb2009;
+                border-color: #eb2009;
+            }
         }
     }
 }

@@ -5,3 +5,4 @@ export const VERIFY_TOKEN = 'verifyToken';
 export const FETCH_TRACKERS = 'fetchTrackers';
 export const ADD_TRACKER = 'addTracker';
 export const REMOVE_TRACKER = 'removeTracker';
+export const UPDATE_TRACKER = 'updateTracker';

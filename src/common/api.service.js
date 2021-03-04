@@ -34,6 +34,10 @@ const ApiService = {
         return Vue.axios.post(`${resource}`, params);
     },
 
+    put(resource, slug='', params) {
+        return Vue.axios.put(`${resource}/${slug}`, params);
+    },
+
     delete(resource, params) {
         return Vue.axios.delete(`${resource}`, {
             data: params
@@ -57,5 +61,9 @@ export const TrackerService = {
 
     getList() {
         return ApiService.get('tracker', 'list');
+    },
+
+    updateTracker(data) {
+        return ApiService.put('tracker', 'update', data);
     }
 }

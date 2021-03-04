@@ -2,9 +2,11 @@ var TrackerService = require('../common/api.service').TrackerService;
 const FETCH_TRACKERS = require('./actions.type').FETCH_TRACKERS;
 const ADD_TRACKER = require('./actions.type').ADD_TRACKER;
 const REMOVE_TRACKER = require('./actions.type').REMOVE_TRACKER;
+const UPDATE_TRACKER = require('./actions.type').UPDATE_TRACKER;
 const SET_TRACKERS = require('./mutations.type').SET_TRACKERS;
 const START_FETCH = require('./mutations.type').START_FETCH;
 const END_FETCH = require('./mutations.type').END_FETCH;
+
 
 const state = {
     trackers: [],
@@ -57,6 +59,18 @@ const actions = {
                 .catch((err) => {
                     reject(err);
                 });
+        });
+    },
+    [UPDATE_TRACKER](context, updatedTracker) {
+        return new Promise((resolve, reject) => {
+            TrackerService.updateTracker(updatedTracker)
+                .then((data) => {
+                    context.dispatch(FETCH_TRACKERS);
+                    resolve(data);
+                })
+                .catch((err) => {
+                    reject(err);
+                })
         });
     }
 }
