@@ -1,18 +1,29 @@
 <template>
     <div class="tracker-preview">
-        <div class="name">
-            Name: 
-                <span v-if="!isEdit" v-text="tracker.name"></span>
-                <input
-                    v-if="isEdit"
-                    type="text"
-                    v-model="trackerName"
-                    required="true"/>
+        <div class="left-container">
+            <div class="name">
+                Name: 
+                    <span v-if="!isEdit" v-text="tracker.name"></span>
+                    <input
+                        v-if="isEdit"
+                        type="text"
+                        v-model="trackerName"
+                        required="true"/>
+            </div>
+            <div class="url">URL: <span v-text="tracker.url"></span></div>
+            <button class="remove" v-if="!isEdit" v-on:click="removeTracker(tracker._id)">Remove</button>
+            <button v-if="!isEdit" v-on:click="editTracker()">Edit</button>
+            <button class="remove" v-if="isEdit" v-on:click="stopEdit()">Cancel</button>
+            <button v-if="isEdit" v-on:click="updateTracker(trackerName, tracker._id)">Save</button>
         </div>
-        <div class="url">URL: <span v-text="tracker.url"></span></div>
-        <button class="remove" v-if="!isEdit" v-on:click="removeTracker(tracker._id)">Remove</button>
-        <button v-if="!isEdit" v-on:click="editTracker()">Edit</button>
-        <button v-if="isEdit" v-on:click="updateTracker(trackerName, tracker._id)">Save</button>
+        <div class="right-container">
+            <div class="current-price">
+                Current: {{tracker.currentPrice}}€
+            </div>
+            <div class="lowest-price">
+                Lowest: {{tracker.lowestPrice}}€
+            </div>
+        </div>
     </div>
 </template>
 
@@ -54,6 +65,10 @@ export default {
 
         editTracker() {
             this.isEdit = true;
+        },
+
+        stopEdit() {
+            this.isEdit = false;
         }
     }
 }
