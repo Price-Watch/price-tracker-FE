@@ -34,16 +34,27 @@
                 }
             }
         }
+        .alert-price {
+            .alert-price-range {
+                width: 250px;
+            }
+            span::after {
+                content: '€';
+            }
+        }
     }
     .right-container {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         min-width: 200px;
-        font-size: 22px;
-        font-weight: 600;
         .current-price {
-            display: flex;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .lowest-price, .highest-price {
+            font-size: 16px;
+            font-weight: 400;
         }
     }
 }

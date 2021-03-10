@@ -24,6 +24,11 @@ export default new Router({
             name: 'register',
             path: '/register',
             component: Register
-        }
+        },
+        //{
+        //    name: 'details',
+        //    path: '/details/:id',
+        //    component: DetailView
+        //}
     ]
 });

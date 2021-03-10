@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="isLoading">
+        <div v-if="isLoading && (!trackers || trackers.length === 0)">
             Loading trackers
         </div>
         <div v-else>
