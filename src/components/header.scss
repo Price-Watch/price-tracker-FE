@@ -1,7 +1,8 @@
 .header-container {
     display: flex;
     justify-content: space-between;
-    background-color: #06125c;
+    background-color: #226280;
+    border-bottom: 3px solid #0c2436;
     .right-actions {
         display: flex;
         .right-action {
@@ -20,6 +21,8 @@
     }
     a {
         transition: 0.2s;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-transform: uppercase;
         color: #fff;
         text-decoration: none;
         &:visited {
